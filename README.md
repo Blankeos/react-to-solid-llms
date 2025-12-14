@@ -37,13 +37,6 @@ You're maintaining react-to-solid-llms docs for React → SolidJS ports.
  i.e. [Subtopic 1](/topic-1/subtopic-1.md)
 ```
 
-> Crafted from my experience porting a bunch of react libs to solid. (Mostly just fed it through Gemini 3, but I can't fully verify the information). But my sources were:
->
-> - @mantine/hooks -> bagon-hooks
-> - @number-flow/react -> solid-number-flow
-> - sonner -> solid-sonner
-> - [Functional recursion](https://www.carlo.tl/blog/how-to-dynamically-wrap-components-in-solidjs)
-
 #### Verifying that the hyperlinks work:
 
 (I use Mistral's `Devstral 2` model for this, it can easily make subagents to check each hyperlink very easily without bloating context)
@@ -57,3 +50,12 @@ https://raw.githubusercontent.com/Blankeos/react-to-solid-llms/main/llms.txt
 #### Verifying that the contents are real
 
 Use your brain 🧠😭
+
+### Why I made this
+
+Crafted from my experience porting a bunch of react libs to solid. (Mostly just fed it through Gemini 3, but I can't fully verify the information). But my sources were:
+
+- @mantine/hooks -> bagon-hooks
+- @number-flow/react -> solid-number-flow
+- sonner -> solid-sonner
+- [Functional recursion](https://www.carlo.tl/blog/how-to-dynamically-wrap-components-in-solidjs)
