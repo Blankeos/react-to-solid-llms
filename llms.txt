@@ -12,6 +12,9 @@ This documentation provides a comprehensive guide for porting React hooks and co
   - Mapping `useEffect` to `createEffect`.
   - Auto-tracking dependencies vs manual dependency arrays.
   - `onCleanup` vs returning a cleanup function.
+  - **Lifecycle Mapping**: Mapping `getSnapshotBeforeUpdate` to `createComputed` (pre-DOM) and `componentDidUpdate` to `createEffect` (post-DOM).
+  - **Previous Values of useEffect**: Accessing previous state via effect return arguments.
+
 
 - [Props & Accessors](/concepts/props-and-accessors.md)
   - **CRITICAL**: Passing reactive values vs passing functions.
@@ -20,6 +23,8 @@ This documentation provides a comprehensive guide for porting React hooks and co
 - [Refs & DOM](/concepts/refs-and-dom.md)
   - `useRef` vs plain variables or `createSignal`.
   - Handling ref callbacks.
+  - **Forwarding Refs**: Composing ref functions to merge internal and external refs.
+  - **Web Components**: Using `attr:` for strict attribute binding.
 
 - [Callbacks & Stability](/concepts/callbacks-and-stability.md)
   - Why `useCallback` is rarely needed.
