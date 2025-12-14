@@ -1,0 +1,37 @@
+# React to Solid Porting Guide
+
+This documentation provides a comprehensive guide for porting React hooks and components to SolidJS, based on the patterns found in @mantine-hooks (React) and @bagon-hooks (Solid).
+
+## Core Concepts
+
+- [State vs Signals](/concepts/state-vs-signals.md)
+  - Mapping `useState` to `createSignal`.
+  - Understanding read/write separation.
+
+- [Effects & Lifecycle](/concepts/effects-and-lifecycle.md)
+  - Mapping `useEffect` to `createEffect`.
+  - Auto-tracking dependencies vs manual dependency arrays.
+  - `onCleanup` vs returning a cleanup function.
+
+- [Props & Accessors](/concepts/props-and-accessors.md)
+  - **CRITICAL**: Passing reactive values vs passing functions.
+  - Why `props.value` loses reactivity if destructured.
+
+- [Refs & DOM](/concepts/refs-and-dom.md)
+  - `useRef` vs plain variables or `createSignal`.
+  - Handling ref callbacks.
+
+- [Callbacks & Stability](/concepts/callbacks-and-stability.md)
+  - Why `useCallback` is rarely needed.
+  - The "Run Once" component model explained.
+
+- [Stores vs Reducers](/concepts/stores-vs-reducers.md)
+  - Replacing `useReducer` and complex state with `createStore`.
+  - Mutating state with proxies (Immer-like style).
+
+## Practical Examples
+
+- [Simple State (useCounter)](/examples/simple-state.md)
+- [Event Listeners (useClickOutside)](/examples/event-listeners.md)
+- [Subscriptions (useMediaQuery)](/examples/subscriptions.md)
+- [Timing & Async (useDebouncedValue)](/examples/timing-and-async.md)

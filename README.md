@@ -18,6 +18,22 @@ Reference: https://raw.githubusercontent.com/blankeos/react-to-solidjs-llms/main
 
 ### 🚀 IDE / MCP agent
 
-Visit [gitmcp.io](https://gitmcp.io/blankeos/react-to-solidjs-llms) for instructions to add to your Cursor / VS Code / Coding Agent settings.
+Visit [gitmcp.io](https://gitmcp.io/blankeos/react-to-solid-llms) for instructions to add to your Cursor / VS Code / Coding Agent settings.
+
+### Contributing
+
+Example Prompt:
+
+```
+You're maintaining react-to-solid-llms docs for React → SolidJS ports.
+
+1. Study `@folder1` (React lib) + `@folder2` (Solid port)
+2. Add to `llms.txt`: `[Topic Name](https://raw.githubusercontent.com/blankeos/react-to-solidjs-llms/main/topic/subtopic.md)`
+3. Create `topic/subtopic.md` with guides or examples or explanations of concepts.
+
+[Subtopic 1](/topic-1/subtopic-1.md)
+```
 
 > Crafted from my experience porting a bunch of react libs to solid.
+> @mantine/hooks -> bagon-hooks
+> 
