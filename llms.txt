@@ -1,6 +1,6 @@
 # React to Solid Porting Guide
 
-This documentation provides a comprehensive guide for porting React hooks and components to SolidJS, based on the patterns found in @mantine-hooks (React) and @bagon-hooks (Solid).
+This documentation provides a comprehensive guide for porting React hooks and components to SolidJS.
 
 ## Core Concepts
 
