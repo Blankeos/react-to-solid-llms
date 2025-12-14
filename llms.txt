@@ -43,7 +43,6 @@ This documentation provides a comprehensive guide for porting React hooks and co
   - Mutating state with proxies (Immer-like style).
   - **External Stores**: Syncing vanilla JS stores (Observer pattern) to Solid.
 
-
 - [Early Returns & Functional Recursion](/concepts/functional-recursion.md)
   - **Early Returns**: Simulating conditional returns using `Switch`/`Match` or recursion (since Solid components run once).
   - **Dynamic Composition**: How to wrap components dynamically (e.g. Nested Layouts) without re-rendering everything.
