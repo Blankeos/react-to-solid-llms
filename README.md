@@ -11,7 +11,7 @@ Use inside any coding agent / chat e.g. Claude Code, OpenCode
 Example Prompt (Or just use the link):
 
 ```sh
-Reference: https://raw.githubusercontent.com/blankeos/react-to-solidjs-llms/main/llms.txt
+Reference: https://raw.githubusercontent.com/blankeos/react-to-solid-llms/main/llms.txt
 
 😏 Port this codebase to SolidJS, no mistakes.
 ```
@@ -29,7 +29,7 @@ You're maintaining react-to-solid-llms docs for React → SolidJS ports.
 
 1. Study `@folder1` (React lib) + `@folder2` (Solid port)
 2. Update `llms.txt`:
-  - If the concept is new: add `[Topic Name](https://raw.githubusercontent.com/blankeos/react-to-solidjs-llms/main/topic/subtopic.md)`
+  - If the concept is new: add `[Topic Name](https://raw.githubusercontent.com/blankeos/react-to-solid-llms/main/topic/subtopic.md)`
   - If the concept already exists: merge / enhance the existing topic entry or Markdown file instead of duplicating
 3. Create `topic/subtopic.md` with guides or examples or explanations of concepts.
  i.e. [Subtopic 1](/topic-1/subtopic-1.md)
