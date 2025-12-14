@@ -6,9 +6,12 @@ In React, managing complex nested state often requires `useReducer` or careful s
 
 ```tsx
 // React
-const [state, dispatch] = useReducer(reducer, { count: 0, user: { name: 'John' } });
+const [state, dispatch] = useReducer(reducer, {
+  count: 0,
+  user: { name: "John" },
+});
 // or
-setUser({ ...user, name: 'Jane' });
+setUser({ ...user, name: "Jane" });
 ```
 
 ## Enter `createStore`
@@ -17,41 +20,48 @@ Solid provides `createStore`, which offers a proxy-based API similar to **Immer*
 
 ### Basic Mapping
 
-| React Concept | Solid Concept |
-| :--- | :--- |
-| `useState` (object) | `createStore` |
-| `useReducer` | `createStore` (store actions pattern) |
-| `Immer` | Built-in to `createStore` setters |
+| React Concept       | Solid Concept                         |
+| :------------------ | :------------------------------------ |
+| `useState` (object) | `createStore`                         |
+| `useReducer`        | `createStore` (store actions pattern) |
+| `Immer`             | Built-in to `createStore` setters     |
 
 ### Example: Nested Updates
 
 #### React (Complex)
+
 ```tsx
 const [state, setState] = useState({
-  todos: [{ id: 1, text: 'Learn React', completed: false }]
+  todos: [{ id: 1, text: "Learn React", completed: false }],
 });
 
 const toggleTodo = (id) => {
-  setState(prev => ({
+  setState((prev) => ({
     ...prev,
-    todos: prev.todos.map(todo => 
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    )
+    todos: prev.todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+    ),
   }));
 };
 ```
 
 #### Solid (Simple)
+
 ```tsx
-import { createStore } from 'solid-js/store';
+import { createStore } from "solid-js/store";
 
 const [state, setState] = createStore({
-  todos: [{ id: 1, text: 'Learn Solid', completed: false }]
+  todos: [{ id: 1, text: "Learn Solid", completed: false }],
 });
 
 // "Mutate" deeply using path syntax
 const toggleTodo = (id) => {
-  setState('todos', (todo) => todo.id === id, 'completed', (c) => !c);
+  setState(
+    "todos",
+    (todo) => todo.id === id,
+    "completed",
+    (c) => !c,
+  );
 };
 ```
 
@@ -60,11 +70,11 @@ const toggleTodo = (id) => {
 Instead of a giant switch statement, you can just define functions that mutate the store.
 
 ```tsx
-const [state, setState] = createStore({ count: 0 });
+const [state, _setState] = createStore({ count: 0 });
 
 const actions = {
-  increment: () => setState('count', c => c + 1),
-  decrement: () => setState('count', c => c - 1),
+  increment: () => _setState("count", (c) => c + 1),
+  decrement: () => _setState("count", (c) => c - 1),
 };
 ```
 

@@ -35,5 +35,7 @@ You're maintaining react-to-solid-llms docs for React → SolidJS ports.
 ```
 
 > Crafted from my experience porting a bunch of react libs to solid. (Mostly just fed it through Gemini 3, but I can't fully verify the information lol)
-> @mantine/hooks -> bagon-hooks
-> @number-flow/react -> solid-number-flow
+>
+> - @mantine/hooks -> bagon-hooks
+> - @number-flow/react -> solid-number-flow
+> - sonner -> solid-sonner
