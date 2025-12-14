@@ -22,7 +22,9 @@ Visit [gitmcp.io](https://gitmcp.io/blankeos/react-to-solid-llms) for instructio
 
 ### Contributing
 
-Example Prompt:
+Some LLM tips that I use to add more content here:
+
+#### Adding more topics
 
 ```
 You're maintaining react-to-solid-llms docs for React → SolidJS ports.
@@ -41,3 +43,17 @@ You're maintaining react-to-solid-llms docs for React → SolidJS ports.
 > - @number-flow/react -> solid-number-flow
 > - sonner -> solid-sonner
 > - [Functional recursion](https://www.carlo.tl/blog/how-to-dynamically-wrap-components-in-solidjs)
+
+#### Verifying that the hyperlinks work:
+
+(I use Mistral's `Devstral 2` model for this, it can easily make subagents to check each hyperlink very easily without bloating context)
+
+```
+Can you verify that each of the hyperlinks from this root llms.txt works and has relevant content?
+
+https://raw.githubusercontent.com/Blankeos/react-to-solid-llms/main/llms.txt
+```
+
+#### Verifying that the contents are real
+
+Use your brain 🧠😭
