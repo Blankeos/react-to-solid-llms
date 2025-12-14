@@ -79,3 +79,44 @@ const actions = {
 ```
 
 This provides the same "separation of concerns" benefits as Redux/useReducer without the boilerplate.
+
+## Syncing with External Stores (Observer Pattern)
+
+Sometimes your state lives outside the component tree (e.g., a global notification manager like Sonner). You can use `createStore` to efficiently sync with that external source.
+
+### Example: Syncing a Toast Manager
+
+Instead of forcing a full React re-render when a new toast is added, we can fine-grain the updates.
+
+```tsx
+import { createStore, reconcile } from 'solid-js/store';
+import { ToastState } from './external-state'; // The vanilla JS observer
+
+const [state, setState] = createStore({ toasts: [] });
+
+onMount(() => {
+  // Subscribe to the external vanilla JS store
+  const unsubscribe = ToastState.subscribe((toast) => {
+    // 1. Handle specialized events (like dismiss)
+    if (toast.dismiss) {
+      setState("toasts", (t) => t.filter(item => item.id !== toast.id));
+      return;
+    }
+
+    // 2. Handle Add/Update
+    // If the toast already exists, update it deeply.
+    // If not, prepend it.
+    const exists = state.toasts.find(t => t.id === toast.id);
+    if (exists) {
+      // Solid's reconcile or path syntax handles the merge seamlessly
+      setState("toasts", (t) => t.id === toast.id, reconcile(toast));
+    } else {
+      setState("toasts", (t) => [toast, ...t]);
+    }
+  });
+
+  onCleanup(unsubscribe);
+});
+```
+
+By connecting an external vanilla JS "Observer" to a Solid Store, you get the benefits of a framework-agnostic core logic with the fine-grained reactivity of Solid's view layer.

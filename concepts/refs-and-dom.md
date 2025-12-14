@@ -18,33 +18,29 @@ let ref;
 // Access via ref
 ```
 
-## When to use Signals for Refs?
-If you need to know *when* the ref is attached (e.g., for `useClickOutside` logic that depends on the element existing), you might use a callback ref or a signal.
+## Measuring the DOM
 
+When you need to measure an element (e.g., `getBoundingClientRect`) immediately after it updates, React uses `useLayoutEffect`. In Solid, `createEffect` runs after the DOM update paint, which is usually sufficient and safer.
+
+### React: `useLayoutEffect`
 ```tsx
-// Solid "Signal Ref" pattern
-const [ref, setRef] = createSignal<HTMLElement | null>(null);
-
-<div ref={setRef} /> // Pass the setter!
+useLayoutEffect(() => {
+  const { height } = ref.current.getBoundingClientRect();
+  setHeight(height);
+}, []);
 ```
 
-This is useful in hooks where the DOM node is a dependency for an effect.
-
-## Porting `useRef` for Mutable Values
-If you used `useRef` just to hold a mutable value that doesn't trigger updates (like a timer ID):
-
-**React:**
+### Solid: `createEffect`
 ```tsx
-const timer = useRef(0);
-timer.current = 123;
+createEffect(() => {
+  // This runs after the DOM has updated
+  if (ref) {
+    const { height } = ref.getBoundingClientRect();
+    // Use it...
+  }
+});
 ```
-
-**Solid:**
-```tsx
-// Just use a variable!
-let timer = 0;
-timer = 123;
-```
+If you absolutely need it *before* the browser paints (but after DOM mutation), Solid's `createRenderEffect` is closer to `useLayoutEffect`, but `createEffect` is the standard recommendation for most measurement needs to avoid blocking the main thread.
 
 ## Forwarding & Merging Refs
 

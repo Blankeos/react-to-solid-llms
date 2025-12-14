@@ -28,10 +28,11 @@ Example Prompt:
 You're maintaining react-to-solid-llms docs for React → SolidJS ports.
 
 1. Study `@folder1` (React lib) + `@folder2` (Solid port)
-2. Add to `llms.txt`: `[Topic Name](https://raw.githubusercontent.com/blankeos/react-to-solidjs-llms/main/topic/subtopic.md)`
+2. Update `llms.txt`:
+  - If the concept is new: add `[Topic Name](https://raw.githubusercontent.com/blankeos/react-to-solidjs-llms/main/topic/subtopic.md)`
+  - If the concept already exists: merge / enhance the existing topic entry or Markdown file instead of duplicating
 3. Create `topic/subtopic.md` with guides or examples or explanations of concepts.
-
-[Subtopic 1](/topic-1/subtopic-1.md)
+ i.e. [Subtopic 1](/topic-1/subtopic-1.md)
 ```
 
 > Crafted from my experience porting a bunch of react libs to solid. (Mostly just fed it through Gemini 3, but I can't fully verify the information lol)

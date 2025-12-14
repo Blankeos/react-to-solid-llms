@@ -15,14 +15,22 @@ This documentation provides a comprehensive guide for porting React hooks and co
   - **Lifecycle Mapping**: Mapping `getSnapshotBeforeUpdate` to `createComputed` (pre-DOM) and `componentDidUpdate` to `createEffect` (post-DOM).
   - **Previous Values of useEffect**: Accessing previous state via effect return arguments.
 
-
 - [Props & Accessors](/concepts/props-and-accessors.md)
   - **CRITICAL**: Passing reactive values vs passing functions.
   - Why `props.value` loses reactivity if destructured.
 
+- [Lists & Keys](/concepts/lists-and-keys.md)
+  - **`map` vs `<For>`**: Why `key` is not needed in Solid.
+  - **Referential Integrity**: Using `createStore` to prevent full list re-renders.
+  - **Reconcile**: Handling bulk updates (drag-and-drop, sort) efficiently.
+
+- [Non-Reactive State](/concepts/non-reactive-state.md)
+  - **`useRef` vs `let`**: Handling mutable variables (timers, IDs) in a "run-once" component.
+  - **Performance**: Why `useRef` is redundant for non-dom state.
+
 - [Refs & DOM](/concepts/refs-and-dom.md)
   - `useRef` vs plain variables or `createSignal`.
-  - Handling ref callbacks.
+  - **Measuring DOM**: `useLayoutEffect` -> `createEffect`.
   - **Forwarding Refs**: Composing ref functions to merge internal and external refs.
   - **Web Components**: Using `attr:` for strict attribute binding.
 
@@ -33,6 +41,7 @@ This documentation provides a comprehensive guide for porting React hooks and co
 - [Stores vs Reducers](/concepts/stores-vs-reducers.md)
   - Replacing `useReducer` and complex state with `createStore`.
   - Mutating state with proxies (Immer-like style).
+  - **External Stores**: Syncing vanilla JS stores (Observer pattern) to Solid.
 
 ## Practical Examples
 
