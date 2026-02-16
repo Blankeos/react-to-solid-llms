@@ -2,6 +2,14 @@
 
 This documentation provides a comprehensive guide for porting React hooks and components to SolidJS.
 
+## Useful Reference Repositories
+
+Review these ports first to align with proven React -> Solid patterns before writing code:
+
+- [bagon-hooks](https://github.com/Blankeos/bagon-hooks) - Port of Mantine hooks in SolidJS.
+- [solid-sonner](https://github.com/wobsoriano/solid-sonner) - Port of Sonner (React) in SolidJS.
+- [solid-number-flow](https://github.com/blankeos/solid-number-flow) - Port of react-number-flow in SolidJS.
+
 ## Core Concepts
 
 - [State vs Signals](/concepts/state-vs-signals.md)
